@@ -1,21 +1,18 @@
-import { Container, Stack, Select, Text, Box, SimpleGrid } from "@chakra-ui/react"
+import { Container, Stack, Select, Text, Box, VStack } from "@chakra-ui/react"
 import CauseCard from "../components/CauseCard"
+import FilterComponent from "../components/FilterComponent"
 import mockData from "../data/mockData"
 
 export default function Home() {
   return (
     <Container>
-      <Stack direction={['column', 'row']} spacing={10} m={5}>
-        <Select placeholder="Select Country"></Select>
-        <Select placeholder="Select Category"></Select>
-      </Stack>
-
+      <FilterComponent />
       <Box m={5} display='flex' alignItems='center' justifyContent='center'>
         <Text fontSize='xl'> Looking for  _____ causes in ____ </Text>
       </Box>
       
 
-      <SimpleGrid>
+      <VStack>
         {mockData && mockData.map((cause, i)=>(
           <CauseCard
             key={i}
@@ -28,7 +25,7 @@ export default function Home() {
             goalAmount={cause.goalAmount}
           />
         ))}      
-      </SimpleGrid>
+      </VStack>
 
    
     </Container>
