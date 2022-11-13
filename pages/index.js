@@ -7,11 +7,6 @@ export default function Home() {
   return (
     <Container>
       <FilterComponent />
-      <Box m={5} display='flex' alignItems='center' justifyContent='center'>
-        <Text fontSize='xl'> Looking for  _____ causes in ____ </Text>
-      </Box>
-      
-
       <VStack>
         {mockData && mockData.map((cause, i)=>(
           <CauseCard
