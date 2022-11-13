@@ -1,44 +1,36 @@
 import {Stack, Select} from "@chakra-ui/react";
 import {gfmCategories, gfmCountries} from '../data/gfmData'
 import {createGFMUrl} from '../utils/gfmUtils'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import FilterText from "./FilterText";
 
 const FilterComponent = () =>{
 
     const [selectedCountry, setSelectedCountry] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
 
-    const handleChange = () =>{
+    useEffect(()=>{
+        /*
+        console.log("the selected country " + selectedCountry);
+        console.log("the selected category " + selectedCategory);
+        */
         if ((selectedCountry !== "") && (selectedCategory !== "")){
-            console.log("Data from select event........")
-            console.log(selectedCategory)
-            console.log(selectedCountry)
-            const urlToScrape = createGFMUrl(selectedCategory, selectedCountry);
+            const urlToScrape = createGFMUrl(selectedCountry, selectedCategory);
             console.log(urlToScrape)
         }
-    }
+    })
 
     return(
         <Stack direction={['column', 'row']} spacing={10} m={5}>
-            <Select placeholder="Select Country" 
-                defaultValue={selectedCountry}
+            <Select placeholder="Select Country"
+                value={selectedCountry}
                 onChange={(e)=>{
-                setSelectedCountry(e.target.value)
-                console.log(selectedCountry)
-                /*handleChange()*/
-            }}>
+                    setSelectedCountry(e.target.value)
+                }}   
+            >
                 <option disabled>Countries</option>
-                {/*
-                {gfmCountries && gfmCountries.map(
-                    option => (
-                        <option key={option.code} value={option.country}>
-                            {option.country}
-                        </option>
-                    )
-                )}
-                */}
-                {gfmCountries && gfmCountries.map((option, index)=>(
-                    <option key={index} value={option.code}>
+                {gfmCountries && gfmCountries.map((option)=>(
+                    <option key={option.code} value={option.code}>
                         {option.country}
                     </option>
                 ))}
@@ -48,22 +40,10 @@ const FilterComponent = () =>{
                 defaultValue={selectedCategory}
                 onChange={(e)=>{
                 setSelectedCategory(e.target.value)
-                console.log(selectedCategory)
-                /*handleChange()*/
             }}>
                 <option disabled>Categories</option>
-                {/*
-                {gfmCategories && gfmCategories.map(
-                    option => (
-                        <option key={option.url} value={option.category}>
-                            {option.category}
-                        </option>
-                    )
-                )}
-                */}
-
-                {gfmCategories && gfmCategories.map((option, index)=>(
-                    <option key={index} value={option.url}>
+                {gfmCategories && gfmCategories.map((option)=>(
+                    <option key={option.url} value={option.url}>
                         {option.category}
                     </option>
                 ))}
