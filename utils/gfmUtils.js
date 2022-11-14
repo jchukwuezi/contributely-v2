@@ -1,9 +1,11 @@
 const {gfmCategories, gfmCountries} = require('../data/gfmData')
 
 //create goFundMe URL to scrape
-const createGFMUrl = (country, category) =>{
+const createGFMUrl = (nation, cat) =>{
     const baseUrl = 'https://www.gofundme.com'
-    const mainUrl = `${baseUrl}/${country}/${category}`
+    const gfCountry = gfmCountries.find(({ country }) => country === nation)
+    const gfmCategory = gfmCategories.find(({ category }) => category === cat)
+    const mainUrl = `${baseUrl}/${gfCountry.code}/${gfmCategory.url}`
     return mainUrl;
 } 
 

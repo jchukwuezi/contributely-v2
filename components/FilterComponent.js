@@ -11,7 +11,7 @@ const FilterComponent = () =>{
     useEffect(()=>{
         if ((selectedCountry !== "") && (selectedCategory !== "")){
             const urlToScrape = createGFMUrl(selectedCountry, selectedCategory);
-            //console.log(urlToScrape)
+            console.log(urlToScrape)
         }
     })
 
