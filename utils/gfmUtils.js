@@ -9,7 +9,18 @@ const createGFMUrl = (nation, cat) =>{
     return mainUrl;
 } 
 
+const getImgURL = (url) =>{
+    const foundUrl = url.match("background-image:url((.*))")[1]
+    return foundUrl.replace(/[()]/g, '')
+}
+
+const getGoalValue = (goal) =>{
+    return goal.match("of(.*)goal")[1]
+}
+
 
 module.exports = {
-    createGFMUrl
+    createGFMUrl, 
+    getImgURL,
+    getGoalValue
 }

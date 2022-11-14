@@ -3,6 +3,7 @@ import CauseCard from "../components/CauseCard"
 import FilterComponent from "../components/FilterComponent"
 import mockData from "../data/mockData"
 
+
 export default function Home() {
   return (
     <Container>
