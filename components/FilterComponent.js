@@ -1,17 +1,19 @@
 import {Stack, Select, Box, Text} from "@chakra-ui/react";
 import {gfmCategories, gfmCountries} from '../data/gfmData'
 import {createGFMUrl} from '../utils/gfmUtils'
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
+import { URLContext } from "../contexts/URLContext";
 
 
 const FilterComponent = () =>{
+    const {setUrlToScrape} = useContext(URLContext)
     const [selectedCountry, setSelectedCountry] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
 
     useEffect(()=>{
         if ((selectedCountry !== "") && (selectedCategory !== "")){
-            const urlToScrape = createGFMUrl(selectedCountry, selectedCategory);
-            console.log(urlToScrape)
+            const url = createGFMUrl(selectedCountry, selectedCategory);
+            setUrlToScrape(url)
         }
     })
 

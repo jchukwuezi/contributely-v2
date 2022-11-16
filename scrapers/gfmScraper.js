@@ -1,4 +1,5 @@
 import {getImgURL, getGoalValue} from '../utils/gfmUtils'
+const cheerio = require('cheerio')
 
 const scrapeCause = async (mainUrl) =>{
     const data = await fetch(mainUrl)

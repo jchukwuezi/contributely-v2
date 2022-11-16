@@ -1,6 +1,6 @@
 import {Box, Image, Text, Flex, Spacer} from '@chakra-ui/react'
 
-const CauseCard = ({ img, organisation, platform, title, summary, date, goalAmount }) =>{
+const CauseCard = ({ img, /*organisation,*/ platform, title, summary, date, goalAmount }) =>{
     return(
         <Box p={4} display={{ md: 'flex' }}>
             <Box flexShrink={0}>
@@ -14,7 +14,8 @@ const CauseCard = ({ img, organisation, platform, title, summary, date, goalAmou
 
             <Box mt={{base: 4, md: 0}} ml={{md: 6}}>
                 <Flex flexDirection={{ base: 'row', md: 'row', sm: 'column'}}> 
-                    <Text>{organisation}</Text> 
+                    {/*<Text>{organisation}</Text> */}
+                    <Text></Text> 
                     <Spacer />
                     <Text>{platform}</Text>
                 </Flex>

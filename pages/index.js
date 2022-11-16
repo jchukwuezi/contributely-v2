@@ -1,29 +1,20 @@
-import { Container, Stack, Select, Text, Box, VStack } from "@chakra-ui/react"
-import CauseCard from "../components/CauseCard"
+import { Container, VStack } from "@chakra-ui/react"
 import FilterComponent from "../components/FilterComponent"
-import mockData from "../data/mockData"
+import CauseList from "../components/CauseList"
+import {URLContext} from '../contexts/URLContext'
+import { useState } from "react"
 
 
 export default function Home() {
+  const [urlToScrape, setUrlToScrape] = useState("");
   return (
     <Container>
-      <FilterComponent />
-      <VStack>
-        {mockData && mockData.map((cause, i)=>(
-          <CauseCard
-            key={i}
-            img={cause.img} 
-            organisation={cause.organisation}
-            platform={cause.platform}
-            title={cause.title} 
-            summary={cause.summary} 
-            date={cause.date} 
-            goalAmount={cause.goalAmount}
-          />
-        ))}      
-      </VStack>
-
-   
+        <URLContext.Provider value={{urlToScrape, setUrlToScrape}}>
+          <FilterComponent />
+          {urlToScrape !== "" &&
+            <CauseList />
+          }
+        </URLContext.Provider>
     </Container>
   )
 }
