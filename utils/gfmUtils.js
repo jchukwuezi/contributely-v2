@@ -9,6 +9,7 @@ const createGFMUrl = (nation, cat) =>{
     return mainUrl;
 } 
 
+
 const getImgURL = (url) =>{
     const foundUrl = url.match("background-image:url((.*))")[1]
     return foundUrl.replace(/[()]/g, '')

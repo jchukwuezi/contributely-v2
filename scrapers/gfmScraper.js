@@ -11,16 +11,18 @@ const scrapeCause = async (mainUrl) =>{
     summary = summary.replace(/(\r\n|\n|\r)/gm, "")
     const causeUrl = mainUrl
     const goalValue = $('span.text-stat.text-stat-title').text()
-    const goalAmount = getGoalValue(goalValue)
+    //const goalAmount = getGoalValue(goalValue)
     const imgDetails = $('div.a-image.a-image--background').attr('style')
-    const imgUrl = getImgURL(imgDetails)
+    //const imgUrl = getImgURL(imgDetails)
+    const imgUrl = imgDetails;
     const causeObj = {
         "title": title,
         "description": summary,
         "url": causeUrl,
-        "goalAmount": goalAmount,
+        //"goalAmount": goalAmount,
+        "goalAmount": goalValue,
         "image": imgUrl,
-        "dateCreated": dateCreated
+        //"dateCreated": dateCreated
     }
     return causeObj;
 }
