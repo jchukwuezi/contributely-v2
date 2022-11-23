@@ -6,16 +6,8 @@ import { useContext } from "react";
 
 const CauseList = async (url)=> {
     const {urlToScrape} = useContext(URLContext)
-    /*
     const listOfCauses = await getDefaultCauses(urlToScrape)
-    console.log("list of causes ...." + listOfCauses)*/
-    /*
-    const getCauses = async () =>{
-      fetch('http://localhost:3000/api/gfmCauses')
-    }
-    const listOfCauses = await getCauses();
-    console.log(listOfCauses)
-    */
+    console.log("list of causes ...." + listOfCauses)
     return(
         <VStack>
         {listOfCauses && listOfCauses.map((cause, i)=>(
