@@ -15,6 +15,10 @@ const FilterComponent = () =>{
             const url = createGFMUrl(selectedCountry, selectedCategory);
             setUrlToScrape(url)
         }
+
+        return ()=>{
+            console.log('cleanup')
+        }
     })
 
     const FilterText = ({country, category}) =>{

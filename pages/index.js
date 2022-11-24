@@ -7,12 +7,14 @@ import { useState } from "react"
 
 export default function Home() {
   const [urlToScrape, setUrlToScrape] = useState("");
+  
   return (
     <Container>
-        <URLContext.Provider value={{urlToScrape, setUrlToScrape}}>
+        <URLContext.Provider value={{ urlToScrape, setUrlToScrape }}>
           <FilterComponent />
+        
           {urlToScrape !== "" &&
-            <CauseList />
+            console.log("URL to scrape " + urlToScrape)
           }
         </URLContext.Provider>
     </Container>
